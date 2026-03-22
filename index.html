@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Territory.io</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <canvas id="gameCanvas"></canvas>
+
+    <div class="hud hud-right">
+      <div class="hud-card stats">
+        <div class="stat"><span>Score</span><strong id="scoreValue">0</strong></div>
+        <div class="stat"><span>Territory</span><strong id="territoryValue">0.00%</strong></div>
+        <div class="stat"><span>Kills</span><strong id="killsValue">0</strong></div>
+        <div class="stat"><span>Status</span><strong id="statusValue">Menu</strong></div>
+      </div>
+      <div class="hud-card leaderboard-card">
+        <div class="card-title-row"><h2>Leaderboard</h2><span id="survivalValue">0s</span></div>
+        <ol id="leaderboardList" class="leaderboard"></ol>
+      </div>
+      <div class="hud-card power-card compact">
+        <div class="card-title-row"><h2>Power-Ups</h2><span id="themeValue">Neon Grid</span></div>
+        <div class="power-row"><span>Speed</span><strong id="speedValue">Ready</strong></div>
+        <div class="power-row"><span>Shield</span><strong id="shieldValue">Offline</strong></div>
+      </div>
+    </div>
+
+    <div id="menuOverlay" class="overlay visible">
+      <div class="panel hero-panel menu-panel">
+        <div class="eyebrow">Browser Arena</div>
+        <h2>Pick a character and take the map</h2>
+        <p>Draw outside your land, return safely to close the loop, and the enclosed area becomes yours. Cut enemy trails before they cut yours.</p>
+        <div id="characterGrid" class="character-grid"></div>
+        <div class="menu-footer">
+          <div id="characterSummary" class="character-summary">Select a runner.</div>
+          <div class="actions"><button id="playButton" class="primary">Play</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="messageOverlay" class="overlay hidden">
+      <div class="panel">
+        <div class="eyebrow" id="messageEyebrow">Status</div>
+        <h2 id="messageTitle">Game Over</h2>
+        <p id="messageBody">You were cut off outside your own territory.</p>
+        <div class="actions"><button id="respawnButton" class="primary">Respawn</button><button id="restartButton" class="secondary">Restart Match</button></div>
+      </div>
+    </div>
+
+    <button id="pauseButton" class="pause-button" type="button">Pause</button>
+  </div>
+  <script src="./game.js"></script>
+</body>
+</html>
